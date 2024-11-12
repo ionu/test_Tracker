@@ -15,7 +15,7 @@ class Visits extends Model
     public $primaryKey = 'visits_id';
 
     /**
-     * Get the post that owns the comment.
+     * holds the visits
      *
      * Syntax: return $this->belongsTo(User::class, 'foreign_key', 'owner_key');
      *
@@ -50,6 +50,13 @@ class Visits extends Model
         DB::table('visits')->upsert($data, $uniqueBy, $updateColumns);
     }
 
+    /**
+     * does the search based on dates, and sums the total visits
+     * @param string $startDate
+     * @param string $endDate
+     * @param int $userId
+     * @return Collection
+     */
     public function getVisitsByDate(string $startDate, string $endDate, int $userId): Collection
     {
         return Visits::select('url', DB::raw('SUM(unique_visits) as total_unique_visits'))

@@ -17,7 +17,7 @@ use Psy\Util\Json;
 class VisitsController extends Controller
 {
     /**
-     * Display the user's profile form.
+     * the main page
      */
     public function index(Request $request): View
     {
@@ -30,7 +30,7 @@ class VisitsController extends Controller
     }
 
     /**
-     * list the alert subscriptions
+     * list of the visits
      * @param Request $request
      * @return AnonymousResourceCollection
      */

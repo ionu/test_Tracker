@@ -6,7 +6,6 @@
     const urls = Array();
 
     if (!visitedUrls) {
-        // Generate a new unique ID if none exists and save it in localStorage
         urls.push(url);
         localStorage.setItem('urls', JSON.stringify(urls));
         sendData(url);
